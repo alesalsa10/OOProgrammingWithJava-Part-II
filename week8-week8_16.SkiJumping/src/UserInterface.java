@@ -55,6 +55,6 @@ public class UserInterface {
                 break;
             }
         }
-        rating.printFinalResults();
+        rating.printFinalResults()
     }
 }
