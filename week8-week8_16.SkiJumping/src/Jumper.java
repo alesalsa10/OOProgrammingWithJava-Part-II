@@ -11,17 +11,18 @@
 import java.util.Random;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.StringJoiner;
 
 public class Jumper implements Comparable<Jumper> {
     private String name;
     private int points;
     private List<Integer> jumpLenghts;
+    private int jumpLen;
     
     public Jumper(String name, int points){
         this.name = name;
         this.points = 0;
         this.jumpLenghts = new ArrayList<Integer>();
+        this.jumpLen = 0;
     }
     
     public String toString(){
@@ -29,9 +30,9 @@ public class Jumper implements Comparable<Jumper> {
     }
     
     public int jump(){
-        int jumpLength = new Random().nextInt((120 - 60) + 1) + 60;
-        this.jumpLenghts.add(jumpLength);
-        return jumpLength;
+        this.jumpLen = new Random().nextInt((120 - 60) + 1) + 60;
+        this.jumpLenghts.add(this.jumpLen);
+        return jumpLen;
     }
     
     public void setPoints(int value){
@@ -41,7 +42,7 @@ public class Jumper implements Comparable<Jumper> {
         return this.name;
     }
     public String printLenght(){
-        return "" + jump();
+        return "" + this.jumpLen;
     }
     
     public int getPoints(){
@@ -51,8 +52,8 @@ public class Jumper implements Comparable<Jumper> {
     public void printAllLenghts(){
         String listString = "";
         
-        for (int i = 0; i < this.jumpLenghts.size()-1;i++){
-            listString += this.jumpLenghts.get(i) + "m, ";
+        for (int i = 0; i < this.jumpLenghts.size();i++){
+            listString += this.jumpLenghts.get(i) + " m, ";
         }
         listString = listString.replaceAll(", $", "");
         System.out.println("jump lenghts: " + listString);

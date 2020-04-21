@@ -70,9 +70,11 @@ public class Rating {
     }
     
     public void printFinalResults(){
+        Collections.sort(jumpers, Collections.reverseOrder());
+        
         int i = 1;    
         for (Jumper jumper: jumpers){
-                System.out.println(i++ + jumper.toString());
+                System.out.println(i++ + " " + jumper.toString());
                 jumper.printAllLenghts();
             }
         }
